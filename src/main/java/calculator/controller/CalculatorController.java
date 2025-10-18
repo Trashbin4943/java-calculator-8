@@ -2,6 +2,8 @@ package calculator.controller;
 
 import calculator.model.Calculator;
 import calculator.view.InputView;
+import calculator.view.OutputView;
+
 import java.util.List;
 
 public class CalculatorController {
@@ -9,8 +11,8 @@ public class CalculatorController {
         String inputText = InputView.getInputString();
 
         Calculator calculator = new Calculator();
-        List<Integer> extractedNumbers = calculator.extractNumbers(inputText);
+        int result = calculator.add(inputText);
 
-        System.out.println("추출된 숫자 리스트: " + extractedNumbers);
+        OutputView.printResult(result);
     }
 }
