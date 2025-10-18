@@ -1,10 +1,12 @@
 package controller;
 
+import main.java.calculator.model.Calculator;
 import view.InputView;
 
 public class CalculatorController {
     public void run() {
         String inputText = InputView.getInputString();
-        System.out.println("입력 확인: " + inputText);
+        Calculator calculator = new Calculator();
+        calculator.processInput(inputText);
     }
 }
