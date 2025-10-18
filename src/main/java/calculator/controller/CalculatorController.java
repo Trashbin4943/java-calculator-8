@@ -1,12 +1,16 @@
-package controller;
+package calculator.controller;
 
-import main.java.calculator.model.Calculator;
-import view.InputView;
+import calculator.model.Calculator;
+import calculator.view.InputView;
+import java.util.List;
 
 public class CalculatorController {
     public void run() {
         String inputText = InputView.getInputString();
+
         Calculator calculator = new Calculator();
-        calculator.processInput(inputText);
+        List<Integer> extractedNumbers = calculator.extractNumbers(inputText);
+
+        System.out.println("추출된 숫자 리스트: " + extractedNumbers);
     }
 }
