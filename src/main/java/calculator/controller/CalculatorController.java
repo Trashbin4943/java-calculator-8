@@ -10,7 +10,5 @@ public class CalculatorController {
 
         Calculator calculator = new Calculator();
         List<Integer> extractedNumbers = calculator.extractNumbers(inputText);
-
-        System.out.println("추출된 숫자 리스트: " + extractedNumbers);
     }
 }
