@@ -4,4 +4,8 @@ public class OutputView {
     public static void printResult(int sum) {
         System.out.print("결과 : " + sum);
     }
+
+    public void printError(String message) {
+        System.out.println("[ERROR] " + message);
+    }
 }
