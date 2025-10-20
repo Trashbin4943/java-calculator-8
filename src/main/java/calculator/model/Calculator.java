@@ -5,16 +5,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Calculator {
-    public int add (String text) {
+    public List<Integer> extractNumbers(String text) {
         if (text == null || text.isEmpty()) {
-            return 0;
+            return new ArrayList<>();
         }
 
-        List<Integer> numbers = extractNumbers(text);
-        return sum(numbers);
-    }
-
-    private List<Integer> extractNumbers(String text) {
         String delimiter = "[,:]";
         String numbersText = text;
 
@@ -25,6 +20,7 @@ public class Calculator {
                 numbersText = matcher.group(2);
             }
         }
+
         return convertToNumbers(numbersText.split(delimiter));
     }
 
@@ -32,24 +28,9 @@ public class Calculator {
         List<Integer> numbers = new ArrayList<>();
         for (String str : numberStrings) {
             if (!str.trim().isEmpty()) {
-                int number = Integer.parseInt(str.trim());
-
-                if (number < 0){
-                    throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
-                }
-                numbers.add(number);
+                numbers.add(Integer.parseInt(str.trim()));
             }
         }
         return numbers;
     }
-
-    private int sum(List<Integer> numbers) {
-        int sum = 0;
-        for (Integer number : numbers) {
-            sum += number;
-        }
-        return sum;
-    }
-
-
 }
